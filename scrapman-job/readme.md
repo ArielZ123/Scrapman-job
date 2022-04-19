@@ -14,3 +14,13 @@ DO NOT FORGET TO CONNECT THE SQL FILE TO YOUR DB!!!
 
 To sum up things: I recommend you to give it a try and read about me in my github profile -> https://github.com/ArielZ123
 If you need anything feel free to ask me.
+
+Pictures from the job:
+https://cdn.discordapp.com/attachments/965912875640172594/965934134587432980/unknown.png
+https://cdn.discordapp.com/attachments/965912875640172594/965934434371112970/unknown.png
+https://cdn.discordapp.com/attachments/965912875640172594/965934652374278184/unknown.png
+https://cdn.discordapp.com/attachments/965912875640172594/965934813607522315/unknown.png
+https://cdn.discordapp.com/attachments/965912875640172594/965935124120240188/unknown.png
+https://cdn.discordapp.com/attachments/965912875640172594/965935831363760148/unknown.png
+https://cdn.discordapp.com/attachments/965912875640172594/965936115267801107/unknown.png
+https://cdn.discordapp.com/attachments/965912875640172594/965937363111006248/unknown.png

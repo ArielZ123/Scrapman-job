@@ -62,7 +62,7 @@ Citizen.CreateThread(function()
            DrawMarker(1, Scrapsell[k].x, Scrapsell[k].y, Scrapsell[k].z, 0, 0, 0, 0, 0, 0, 1.001, 1.0001, 0.2001, 50, 205, 50, 80 ,0 ,0 ,0 ,0)
 	   local coord1 = vector3(plyCoords.x, plyCoords.y, plyCoords.z)
 	   local coord2 = vector3(Scrapsell[k].x, Scrapsell[k].y, Scrapsell[k].z)
-	   local dist - #(coord1 - coord2)
+	   local dist = #(coord1 - coord2)
            if dist <= 1.2 then
               scrapmantext(Scrapsell[k].x, Scrapsell[k].y, Scrapsell[k].z, tostring('Press ~g~[E]~w~ to sell scraps'))
               if IsControlJustPressed(0,38) then
@@ -81,19 +81,19 @@ end)
 --
 -- Create Blips
 --Citizen.CreateThread(function()
--- pretty sure you dont need a thread ? 
+-- pretty sure you dont need a thread ? or if so, why not add it below 
 local blip = AddBlipForCoord(-511.76, -1753.97, 18.9)
 SetBlipSprite(blip, 365)
 SetBlipScale(blip, 0.90)
 SetBlipColour(blip, 2)
 SetBlipAsShortRange(blip, true)
-
 BeginTextCommandSetBlipName("STRING")
 AddTextComponentString('Scrap Area')
 EndTextCommandSetBlipName(blip)
 --end)
 
 Citizen.CreateThread(function()
+	-- if thread is needed for blip, add code for it here, 
     for k in pairs(Npc) do
        RequestModel(GetHashKey("s_m_m_dockwork_01"))
        while not HasModelLoaded(GetHashKey("s_m_m_dockwork_01")) do
@@ -135,6 +135,7 @@ function scrap()
         end
 
         if time == 1 then
+		-- if you add variables for the object names, then server owners can easily configure what props theyd like to use
            scrap_type = CreateObject(GetHashKey('prop_car_door_01'),plyCoords.x, plyCoords.y,plyCoords.z, true, true, true)
 	       AttachEntityToEntity(scrap_type , GetPlayerPed(-1), GetPedBoneIndex(GetPlayerPed(-1), 60309),  0.025, 0.00, 0.355, -75.0, 470.0, 0.0, true, true, false, true, 1, true)
 	       LoadDict('anim@heists@box_carry@')

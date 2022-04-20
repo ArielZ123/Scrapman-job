@@ -22,8 +22,8 @@ end)
 RegisterServerEvent('scrapjob:scrap:sell')
 AddEventHandler('scrapjob:scrap:sell', function()
    local _source = source
-   if Config.useESX then 
-       local xPlayer = ESX.GetPlayerFromId(_source)
+   if Config.useESX == true then 
+       local xPlayer = ESX.GetPlayerFromId(source)
        local scrapQuantity = xPlayer.getInventoryItem('scrap').count  
    elseif Config.useQBCore then 
        local Player = QBCore.Functions.GetPlayer(_source)

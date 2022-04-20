@@ -1,4 +1,4 @@
-if Config.useESX then 
+if Config.useESX == true then 
    ESX = nil
    TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 elseif Config.useQBCore then

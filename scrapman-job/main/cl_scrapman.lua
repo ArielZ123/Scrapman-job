@@ -1,18 +1,20 @@
-if Config.useESX then
-ESX = nil
-Citizen.CreateThread(function()
-while ESX == nil do
-TriggerEvent(‘esx:getSharedObject’, function(obj) ESX = obj end)
-Citizen.Wait(0)
-end
-end)
+if Config.useESX then 
+	ESX = nil
+	-- create the thread if we use ESX
+	Citizen.CreateThread(function()
+		while ESX == nil do
+			TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
+			Citizen.Wait(0)
+		end
+	end)
 
-elseif Config.useQBCore then 
-	QBCore = nil
-	QBCore = exports['qb-core']:GetCoreObject()
-	Player = QBCore.Functions.GetPlayerData()
+	elseif Config.useQBCore then 
+		QBCore = nil
+		QBCore = exports['qb-core']:GetCoreObject()
+		Player = QBCore.Functions.GetPlayerData()
+	end
+	
 end
-
 
 local InJob = false
 local scrap_type = nil

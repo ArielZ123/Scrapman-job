@@ -33,7 +33,7 @@ AddEventHandler('scrapjob:scrap:sell', function()
    
    local addmoney = math.random(20, 50) -- change here the price of the scrap sell
    if scrapQuantity >= 1 then
-        if Config.useESX then
+        if Config.useESX == true then
           xPlayer.removeInventoryItem('scrap', 1)
           xPlayer.addMoney(addmoney)
           TriggerClientEvent("pNotify:SendNotification", source, {
@@ -50,7 +50,7 @@ AddEventHandler('scrapjob:scrap:sell', function()
         end
        
    elseif scrapQuantity then
-          if Config.useESX then 
+          if Config.useESX == true then 
             TriggerClientEvent("pNotify:SendNotification", source, {
                 text = "you dont have any scrap type",
                 type = "success",

@@ -16,7 +16,6 @@ AddEventHandler('scrapjob:scrap:find', function()
        local Player = QBCore.Functions.GetPlayer(_source)
        Player.Functions.AddItem('scrap', 1)
    end
-   
 end)
 
 RegisterServerEvent('scrapjob:scrap:sell')

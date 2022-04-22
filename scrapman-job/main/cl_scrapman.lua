@@ -1,16 +1,16 @@
-Citizen.CreateThread(function()
-     if Config.useESX then 
-	    ESX = nil
-		while ESX == nil do
-		  TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
-		  Citizen.Wait(0)
-		end
-	 elseif Config.useQBCore then 
-	   QBCore = nil
-	   QBCore = exports['qb-core']:GetCoreObject()
-	   Player = QBCore.Functions.GetPlayerData()
-	 end
-end)
+if Config.useESX == true then
+   ESX = nil
+   Citizen.CreateThread(function()
+      while ESX == nil do
+        TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
+        Citizen.Wait(0)
+      end
+   end)
+elseif Config.useQBCore then
+   QBCore = nil
+   QBCore = exports['qb-core']:GetCoreObject()
+   Player = QBCore.Functions.GetPlayerData()
+end
 
 local InJob = false
 local scrap_type = nil
@@ -34,13 +34,15 @@ local Npc = { -- Add more npcs for sell markrer...
 
 Citizen.CreateThread(function()
     while true do
-        Citizen.Wait(0)
-		local ped = PlayerPedId()
-        local plyCoords = GetEntityCoords(PlayerPedId())
+        local ped = PlayerPedId()
+        local plyCoords = GetEntityCoords(ped)
         for k in pairs(Scrappos) do
            if InJob == false then
               DrawMarker(1, Scrappos[k].x, Scrappos[k].y, Scrappos[k].z, 0, 0, 0, 0, 0, 0, 1.001, 1.0001, 0.2001, 0, 173, 255, 47 ,0 ,0 ,0 ,0)
-              local dist = Vdist(plyCoords.x, plyCoords.y, plyCoords.z, Scrappos[k].x, Scrappos[k].y, Scrappos[k].z)
+              local coord1 = vector3(plyCoords.x, plyCoords.y, plyCoords.z)
+	          local coord2 = vector3(Scrappos[k].x, Scrappos[k].y, Scrappos[k].z)
+              local dist = #(coord1 - coord2)
+
               if dist <= 1.2 then
                  scrapmantext(Scrappos[k].x, Scrappos[k].y, Scrappos[k].z, tostring('Press ~b~[E]~w~ to search this spot'))
                  if IsControlJustPressed(0,38) then
@@ -52,30 +54,31 @@ Citizen.CreateThread(function()
         end
 
         for k in pairs(Scrapsell) do
-           DrawMarker(1, Scrapsell[k].x, Scrapsell[k].y, Scrapsell[k].z, 0, 0, 0, 0, 0, 0, 1.001, 1.0001, 0.2001, 50, 205, 50, 80 ,0 ,0 ,0 ,0)
-           local dist = Vdist(plyCoords.x, plyCoords.y, plyCoords.z, Scrapsell[k].x, Scrapsell[k].y, Scrapsell[k].z)
-           if dist <= 1.2 then
-              scrapmantext(Scrapsell[k].x, Scrapsell[k].y, Scrapsell[k].z, tostring('Press ~g~[E]~w~ to sell scraps'))
-              if IsControlJustPressed(0,38) then
-                 TriggerServerEvent('scrapjob:scrap:sell')
-                 DeleteEntity(scrap_type)
-                 ClearPedTasks(ped)
-                 InJob = false
+           if InJob == true then
+              DrawMarker(1, Scrapsell[k].x, Scrapsell[k].y, Scrapsell[k].z, 0, 0, 0, 0, 0, 0, 1.001, 1.0001, 0.2001, 50, 205, 50, 80 ,0 ,0 ,0 ,0)
+              local coord1 = vector3(plyCoords.x, plyCoords.y, plyCoords.z)
+	          local coord2 = vector3(Scrapsell[k].x, Scrapsell[k].y, Scrapsell[k].z)
+	          local dist = #(coord1 - coord2)
+              if dist <= 1.2 then
+                 scrapmantext(Scrapsell[k].x, Scrapsell[k].y, Scrapsell[k].z, tostring('Press ~g~[E]~w~ to sell scraps'))
+                 if IsControlJustPressed(0,38) then
+                    TriggerServerEvent('scrapjob:scrap:sell')
+                    DeleteEntity(scrap_type)
+                    ClearPedTasks(ped)
+                    InJob = false
+                 end
               end
            end
         end
 
-        if InJob == true then
-            if IsEntityPlayingAnim(ped, "anim@gangops@facility@servers@bodysearch@", "player_search", 3) then
-               DisableAllControlActions(0, true)
-            end
+        if IsEntityPlayingAnim(PlayerPedId(), "anim@gangops@facility@servers@bodysearch@", "player_search", 3) then
+           DisableAllControlActions(0, true)
 	    end
+        Citizen.Wait(0)
     end
 end)
 
--- Create Blips
 Citizen.CreateThread(function()
-
 	local blip = AddBlipForCoord(-511.76, -1753.97, 18.9)
 	SetBlipSprite(blip, 365)
 	SetBlipScale(blip, 0.90)
@@ -85,9 +88,7 @@ Citizen.CreateThread(function()
     BeginTextCommandSetBlipName("STRING")
 	AddTextComponentString('Scrap Area')
 	EndTextCommandSetBlipName(blip)
-end)
 
-Citizen.CreateThread(function()
     for k in pairs(Npc) do
        RequestModel(GetHashKey("s_m_m_dockwork_01"))
        while not HasModelLoaded(GetHashKey("s_m_m_dockwork_01")) do

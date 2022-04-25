@@ -29,7 +29,6 @@ AddEventHandler('scrapjob:scrap:sell', function()
        local Player = QBCore.Functions.GetPlayer(_source)
        local item = Player.Functions.GetItemByName('scrap')
         if type(item) == 'table' then 
-            Player.Functions.RemoveItem(Config.SabotageItem, 1)
             item = true 
         elseif item == nil then  
             item = false 

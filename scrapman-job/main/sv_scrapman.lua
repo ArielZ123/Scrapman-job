@@ -26,7 +26,7 @@ AddEventHandler('scrapjob:scrap:sell', function()
        local xPlayer = ESX.GetPlayerFromId(source)
        local scrapQuantity = xPlayer.getInventoryItem('scrap').count  
    elseif Config.useQBCore then 
-       local Player = QBCore.Functions.GetPlayer(_source)
+       Player = QBCore.Functions.GetPlayer(_source)
        local item = Player.Functions.GetItemByName('scrap')
         if type(item) == 'table' then 
             item = true 

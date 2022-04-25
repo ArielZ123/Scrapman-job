@@ -30,9 +30,9 @@ AddEventHandler('scrapjob:scrap:sell', function()
        local item = Player.Functions.GetItemByName('scrap')
         if type(item) == 'table' then 
             Player.Functions.RemoveItem(Config.SabotageItem, 1)
-            return true 
+            item = true 
         elseif item == nil then  
-            return false 
+            item = false 
         end
        if item == (nil or false) then scrapQuantity = 0 elseif item == true then  scrapQuantity = 1 end
    end

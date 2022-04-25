@@ -27,7 +27,7 @@ AddEventHandler('scrapjob:scrap:sell', function()
        local scrapQuantity = xPlayer.getInventoryItem('scrap').count  
    elseif Config.useQBCore then 
        local Player = QBCore.Functions.GetPlayer(_source)
-       local item = Player.FunctionsGetItemByName('scrap')
+       local item = Player.Functions.GetItemByName('scrap')
         if type(item) == 'table' then 
             Player.Functions.RemoveItem(Config.SabotageItem, 1)
             return true 

@@ -102,7 +102,7 @@ function scrap()
     Citizen.CreateThread(function()
         local impacts = 0
         local ped = PlayerPedId()
-        local plyCoords = GetEntityCoords(PlayerPedId())
+        local plyCoords = GetEntityCoords(ped)
         local time = math.random(1,4)
         while impacts < 3 do
             Citizen.Wait(0)

@@ -122,22 +122,22 @@ function scrap()
 
         if time == 1 then
            scrap_type = CreateObject(GetHashKey('prop_car_door_01'),plyCoords.x, plyCoords.y,plyCoords.z, true, true, true)
-	       AttachEntityToEntity(scrap_type , GetPlayerPed(-1), GetPedBoneIndex(GetPlayerPed(-1), 60309),  0.025, 0.00, 0.355, -75.0, 470.0, 0.0, true, true, false, true, 1, true)
+	       AttachEntityToEntity(scrap_type , ped, GetPedBoneIndex(ped, 60309),  0.025, 0.00, 0.355, -75.0, 470.0, 0.0, true, true, false, true, 1, true)
 	       LoadDict('anim@heists@box_carry@')
 	       TaskPlayAnim(ped, 'anim@heists@box_carry@', "idle", 3.0, -8, -1, 63, 0, 0, 0, 0 )
         elseif time == 2 then
            scrap_type = CreateObject(GetHashKey('prop_rub_monitor'),plyCoords.x, plyCoords.y,plyCoords.z, true, true, true)
-	       AttachEntityToEntity(scrap_type , GetPlayerPed(-1), GetPedBoneIndex(GetPlayerPed(-1), 60309),  0.020, 0.00, 0.255, -70.0, 470.0, 0.0, true, true, false, true, 1, true)
+	       AttachEntityToEntity(scrap_type , ped, GetPedBoneIndex(ped, 60309),  0.020, 0.00, 0.255, -70.0, 470.0, 0.0, true, true, false, true, 1, true)
 	       LoadDict('anim@heists@box_carry@')
 	       TaskPlayAnim(ped, 'anim@heists@box_carry@', "idle", 3.0, -8, -1, 63, 0, 0, 0, 0 )
         elseif time == 3 then
            scrap_type = CreateObject(GetHashKey('prop_car_seat'),plyCoords.x, plyCoords.y,plyCoords.z, true, true, true)
-	       AttachEntityToEntity(scrap_type , GetPlayerPed(-1), GetPedBoneIndex(GetPlayerPed(-1), 60309),  0.020, 0.00, 0.255, -70.0, 470.0, 0.0, true, true, false, true, 1, true)
+	       AttachEntityToEntity(scrap_type , ped, GetPedBoneIndex(ped, 60309),  0.020, 0.00, 0.255, -70.0, 470.0, 0.0, true, true, false, true, 1, true)
 	       LoadDict('anim@heists@box_carry@')
 	       TaskPlayAnim(ped, 'anim@heists@box_carry@', "idle", 3.0, -8, -1, 63, 0, 0, 0, 0 )
         else
           scrap_type = CreateObject(GetHashKey('prop_rub_tyre_03'),plyCoords.x, plyCoords.y,plyCoords.z, true, true, true)
-	      AttachEntityToEntity(scrap_type , GetPlayerPed(-1), GetPedBoneIndex(GetPlayerPed(-1), 60309),  0.30, 0.35, 0.365, -045.0, 480.0, 0.0, true, true, false, true, 1, true)
+	      AttachEntityToEntity(scrap_type , ped, GetPedBoneIndex(ped, 60309),  0.30, 0.35, 0.365, -045.0, 480.0, 0.0, true, true, false, true, 1, true)
 	      LoadDict('anim@heists@box_carry@')
 	      TaskPlayAnim(ped, 'anim@heists@box_carry@', "idle", 3.0, -8, -1, 63, 0, 0, 0, 0 )
         end

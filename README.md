@@ -17,3 +17,5 @@ DO NOT FORGET TO CONNECT THE SQL FILE TO YOUR DB!!!
 
 To sum up things: I recommend you to give it a try and read about me in my github profile -> https://github.com/ArielZ123
 If you need anything feel free to ask me.
+
+Fivem Forum Link: https://forum.cfx.re/t/esx-scrapman-job-fixed-version-last-update/4841799

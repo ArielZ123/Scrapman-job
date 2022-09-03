@@ -1,7 +1,7 @@
 # Scrapman-job
 OverTrue RolePlay scrapman-job
 # Note:
-Hi there, Thank you for download our cool job here you can get all the information about the job.
+Hi there, Thank you for download my cool job here you can get all the information about the job.
 
 About the job: I posted this job a long time ago -> https://forum.cfx.re/t/esx-scrapman-job/3807213/42 
 But unfortunately i had some problems there, and after a while i decided to post the job again with fixes for all the problems that i had there.

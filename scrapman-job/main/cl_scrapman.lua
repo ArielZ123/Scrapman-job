@@ -174,7 +174,7 @@ function scrapmantext(x, y, z, text)
     end
 end
 
---[[ If you want to make some changes from DisableAllControlActions(0, true) to your own decide, Go to line 65 delete and paste what you want. (Took from esx police job)
+--[[ If you want to make some changes from DisableAllControlActions(0, true) to your own decide, Go to line 70 delete and paste what you want. (Took from esx police job)
 
 			DisableControlAction(0, 1, true) -- Disable pan
 			DisableControlAction(0, 2, true) -- Disable tilt

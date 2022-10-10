@@ -5,14 +5,14 @@ TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 RegisterServerEvent('scrapjob:scrap:find')
 AddEventHandler('scrapjob:scrap:find', function()
    local _source = source
-   local xPlayer = ESX.GetPlayerFromId(source)
+   local xPlayer = ESX.GetPlayerFromId(_source)
    xPlayer.addInventoryItem('scrap', 1)
 end)
 
 RegisterServerEvent('scrapjob:scrap:sell')
 AddEventHandler('scrapjob:scrap:sell', function()
    local _source = source
-   local xPlayer = ESX.GetPlayerFromId(source)
+   local xPlayer = ESX.GetPlayerFromId(_source)
    local scrapQuantity = xPlayer.getInventoryItem('scrap').count
    local addmoney = math.random(20, 50) -- change here the price of the scrap sell
    if scrapQuantity >= 1 then

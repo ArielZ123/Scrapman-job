@@ -78,7 +78,6 @@ Citizen.CreateThread(function()
 	SetBlipSprite(blip, 365)
 	SetBlipScale(blip, 0.90)
     SetBlipColour(blip, 2)
-    SetBlipAsShortRange(blip, true)
 
     BeginTextCommandSetBlipName("STRING")
 	AddTextComponentString('Scrap Area')

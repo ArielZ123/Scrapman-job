@@ -69,14 +69,36 @@ Citizen.CreateThread(function()
            end
         end
 
-        if IsEntityPlayingAnim(ped, "anim@gangops@facility@servers@bodysearch@", "player_search", 3) then
-           DisableAllControlActions(0, true)
-	    end
-
         if not NearMarker then
             Citizen.Wait(1000)
         end
         Citizen.Wait(0)
+    end
+end)
+
+
+Citizen.CreateThread(function()
+    while true do
+       if InJob == true then
+          DisableControlAction(0, 24, true)
+		  DisableControlAction(0, 257, true)
+          DisableControlAction(0, 263, true)
+          DisableControlAction(0, 32, true)
+		  DisableControlAction(0, 34, true)
+		  DisableControlAction(0, 31, true)
+		  DisableControlAction(0, 30, true)
+          DisableControlAction(0, 45, true)
+		  DisableControlAction(0, 22, true)
+		  DisableControlAction(0, 44, true)
+		  DisableControlAction(0, 37, true)
+          DisableControlAction(0, 264, true)
+		  DisableControlAction(0, 257, true)
+		  DisableControlAction(0, 140, true)
+		  DisableControlAction(0, 141, true)
+		  DisableControlAction(0, 142, true)
+		  DisableControlAction(0, 143, true)
+       end
+       Citizen.Wait(0)
     end
 end)
 

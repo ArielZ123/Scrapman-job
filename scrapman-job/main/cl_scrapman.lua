@@ -40,7 +40,7 @@ Citizen.CreateThread(function()
 
               if dist <= 1.2 and not NearMarker then
                  DrawMarker(1, Scrappos[k].x, Scrappos[k].y, Scrappos[k].z, 0, 0, 0, 0, 0, 0, 1.001, 1.0001, 0.2001, 0, 173, 255, 47 ,0 ,0 ,0 ,0)
-                 scrapmantext(Scrappos[k].x, Scrappos[k].y, Scrappos[k].z, tostring('Press ~b~[E]~w~ to search this spot'))
+                 scrapmantext(Scrappos[k].x, Scrappos[k].y, Scrappos[k].z+ 0.9, tostring('Press ~b~[E]~w~ to search this spot'))
                  NearMarker = true
                  if IsControlJustPressed(0,38) then
                     scrap()
@@ -56,7 +56,7 @@ Citizen.CreateThread(function()
 	          local coord2 = vector3(Scrapsell[k].x, Scrapsell[k].y, Scrapsell[k].z)
 	          local dist = #(coord1 - coord2)
               if dist <= 1.2 and not NearMarker then
-                 scrapmantext(Scrapsell[k].x, Scrapsell[k].y, Scrapsell[k].z, tostring('Press ~g~[E]~w~ to sell scraps'))
+                 scrapmantext(Scrapsell[k].x, Scrapsell[k].y, Scrapsell[k].z+ 0.9, tostring('Press ~g~[E]~w~ to sell scraps'))
                  DrawMarker(1, Scrapsell[k].x, Scrapsell[k].y, Scrapsell[k].z, 0, 0, 0, 0, 0, 0, 1.001, 1.0001, 0.2001, 50, 205, 50, 80 ,0 ,0 ,0 ,0)
                  NearMarker = true
                  if IsControlJustPressed(0,38) then
@@ -182,7 +182,7 @@ function LoadDict(dict)
 end
 
 function scrapmantext(x, y, z, text)
-    local onScreen, _x, _y = World3dToScreen2d(x, y, z+ 0.9)
+    local onScreen, _x, _y = World3dToScreen2d(x, y, z)
     local p = GetGameplayCamCoords()
     local distance = GetDistanceBetweenCoords(p.x, p.y, p.z, x, y, z, 1)
     local scale = (1 / distance) * 2

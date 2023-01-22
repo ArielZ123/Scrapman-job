@@ -18,6 +18,14 @@ Server side change: In Line 17 you can change the price of the scrap sell -> loc
 DO NOT FORGET TO CONNECT THE SQL FILE TO YOUR DB!!!
 
 To sum up things: I recommend you to give it a try and read about me in my github profile -> https://github.com/ArielZ123
+
 If you need anything feel free to ask me.
 
 Fivem Forum Link: https://forum.cfx.re/t/esx-scrapman-job-fixed-version-last-update/4841799
+
+-------- Update - > 21/1/2023 --------
+Welcome legacy version :wave:.
+here is what you need to do if you use this version:
+Config.Lua - > will give you the option to switch between the old esx to the new one (esx legacy).
+If you are using the esx legacy version please set the config to false and do the following thing:
+Go to → fxmanifest.lua - > then go to → shared_scripts and then add this line → ‘@es_extended/imports.lua’ under → ‘main/config.lua’.

@@ -15,6 +15,13 @@ DO NOT FORGET TO CONNECT THE SQL FILE TO YOUR DB!!!
 To sum up things: I recommend you to give it a try and read about me in my github profile -> https://github.com/ArielZ123
 If you need anything feel free to ask me.
 
+-------- Update - > 21/1/2023 --------
+Welcome legacy version :wave:.
+here is what you need to do if you use this version:
+Config.Lua - > will give you the option to switch between the old esx to the new one (esx legacy).
+If you are using the esx legacy version please set the config to false and do the following thing:
+Go to → fxmanifest.lua - > then go to → shared_scripts and then add this line → ‘@es_extended/imports.lua’ under → ‘main/config.lua’.
+
 Pictures from the job:
 https://cdn.discordapp.com/attachments/965912875640172594/965934134587432980/unknown.png
 https://cdn.discordapp.com/attachments/965912875640172594/965934434371112970/unknown.png
